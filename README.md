@@ -14,38 +14,21 @@ This standard can be installed with the [Composer](https://getcomposer.org/) dep
 
 2. Install the coding standard as a dependency of your project
 
-        composer require --dev escapestudios/symfony2-coding-standard:~2.0
+        composer require --dev escapestudios/symfony2-coding-standard:dev-master
 
 3. Add the coding standard to the PHP_CodeSniffer install path
 
-        vendor/bin/phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard
+        bin/phpcs --config-set installed_paths vendor/escapestudios/symfony2-coding-standard
 
-4. Check the installed coding standards for "Symfony2"
+5. Check the installed coding standards for "Symfony2" and "Ulabox"
 
-        vendor/bin/phpcs -i
+        bin/phpcs -i
 
-5. Done!
+5. Set the default coding standars to "Ulabox"
+
+        bin/phpcs --config-set default_standard Ulabox
+
+6. Done!
 
         vendor/bin/phpcs /path/to/code
 
-### Stand-alone
-
-1. Install [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)
-
-2. Checkout this repository 
-
-        git clone git://github.com/escapestudios/Symfony2-coding-standard.git
-
-3. Add the coding standard to the PHP_CodeSniffer install path
-
-        phpcs --config-set installed_paths /path/to/Symfony2-coding-standard/Symfony2
-
-   Or copy/symlink this repository's "Symfony2"-folder inside the phpcs `Standards` directory
-
-4. Check the installed coding standards for "Symfony2"
-
-        phpcs -i
-
-5. Done!
-
-        phpcs /path/to/code
