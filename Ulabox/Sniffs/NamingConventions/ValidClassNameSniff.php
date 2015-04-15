@@ -145,7 +145,6 @@ class Ulabox_Sniffs_NamingConventions_ValidClassNameSniff implements PHP_CodeSni
                     'Invalid'
                 );
             }
-            $stackPtr++;
 
             /*
              * Suffix classes with Command;
@@ -159,7 +158,6 @@ class Ulabox_Sniffs_NamingConventions_ValidClassNameSniff implements PHP_CodeSni
                     'Invalid'
                 );
             }
-            $stackPtr++;
 
             /*
              * Suffix classes with Handler;
