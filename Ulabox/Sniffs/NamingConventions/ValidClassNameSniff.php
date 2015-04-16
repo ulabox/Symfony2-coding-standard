@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Validates that we don't things like Interface, Trait, Exception
+ * Validates that we don't things like Interface, Trait
  * Abstract, Entity, Repository, Service... on class names
  */
 
@@ -83,7 +83,7 @@ class Ulabox_Sniffs_NamingConventions_ValidClassNameSniff implements PHP_CodeSni
             if ('T_ABSTRACT' == $tokens[$stackPtr]['type']) {
                 $name = $phpcsFile->findNext(T_STRING, $stackPtr);
                 $function = $phpcsFile->findNext(T_FUNCTION, $stackPtr);
-                
+
                 // making sure we're not dealing with an abstract function
                 if ($name && (is_null($function) || $name < $function) && substr($tokens[$name]['content'], 0, 8) == 'Abstract') {
                     $phpcsFile->addError(
@@ -92,19 +92,6 @@ class Ulabox_Sniffs_NamingConventions_ValidClassNameSniff implements PHP_CodeSni
                         'Invalid'
                     );
                 }
-            }
-
-            /*
-             * Suffix classes with Exception;
-             */
-            $name = $phpcsFile->findNext(T_STRING, $stackPtr);
-
-            if ($name && substr($tokens[$name]['content'], -9) == 'Exception') {
-                $phpcsFile->addError(
-                    sprintf('Class name "%s" is suffixed with "Exception"', $tokens[$name]['content']),
-                    $stackPtr,
-                    'Invalid'
-                );
             }
 
             /*
