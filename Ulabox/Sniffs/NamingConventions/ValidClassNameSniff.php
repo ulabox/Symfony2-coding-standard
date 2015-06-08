@@ -97,69 +97,70 @@ class Ulabox_Sniffs_NamingConventions_ValidClassNameSniff implements PHP_CodeSni
             /*
              * Suffix classes with Entity;
              */
-            $name = $phpcsFile->findNext(T_STRING, $stackPtr);
+            if ('T_CLASS' == $tokens[$stackPtr]['type']) {
+                $name = $phpcsFile->findNext(T_STRING, $stackPtr);
 
-            if ($name && substr($tokens[$name]['content'], -6) == 'Entity') {
-                $phpcsFile->addError(
-                    sprintf('Class name "%s" is suffixed with "Entity"', $tokens[$name]['content']),
-                    $stackPtr,
-                    'Invalid'
-                );
-            }
+                if ($name && substr($tokens[$name]['content'], -6) == 'Entity') {
+                    $phpcsFile->addError(
+                        sprintf('Class name "%s" is suffixed with "Entity"', $tokens[$name]['content']),
+                        $stackPtr,
+                        'Invalid'
+                    );
+                }
 
-            /*
-             * Suffix classes with Service;
-             */
-            $name = $phpcsFile->findNext(T_STRING, $stackPtr);
+                /*
+                 * Suffix classes with Service;
+                 */
+                $name = $phpcsFile->findNext(T_STRING, $stackPtr);
 
-            if ($name && substr($tokens[$name]['content'], -7) == 'Service') {
-                $phpcsFile->addError(
-                    sprintf('Class name "%s" is suffixed with "Service"', $tokens[$name]['content']),
-                    $stackPtr,
-                    'Invalid'
-                );
-            }
+                if ($name && substr($tokens[$name]['content'], -7) == 'Service') {
+                    $phpcsFile->addError(
+                        sprintf('Class name "%s" is suffixed with "Service"', $tokens[$name]['content']),
+                        $stackPtr,
+                        'Invalid'
+                    );
+                }
 
-            /*
-             * Suffix classes with Repository;
-             */
-            $name = $phpcsFile->findNext(T_STRING, $stackPtr);
+                /*
+                 * Suffix classes with Repository;
+                 */
+                $name = $phpcsFile->findNext(T_STRING, $stackPtr);
 
-            if ($name && substr($tokens[$name]['content'], -10) == 'Repository') {
-                $phpcsFile->addError(
-                    sprintf('Class name "%s" is suffixed with "Repository"', $tokens[$name]['content']),
-                    $stackPtr,
-                    'Invalid'
-                );
-            }
+                if ($name && substr($tokens[$name]['content'], -10) == 'Repository') {
+                    $phpcsFile->addError(
+                        sprintf('Class name "%s" is suffixed with "Repository"', $tokens[$name]['content']),
+                        $stackPtr,
+                        'Invalid'
+                    );
+                }
 
-            /*
-             * Suffix classes with Command;
-             */
-            $name = $phpcsFile->findNext(T_STRING, $stackPtr);
+                /*
+                 * Suffix classes with Command;
+                 */
+                $name = $phpcsFile->findNext(T_STRING, $stackPtr);
 
-            if ($name && substr($tokens[$name]['content'], -7) == 'Command') {
-                $phpcsFile->addError(
-                    sprintf('Class name "%s" is suffixed with "Command"', $tokens[$name]['content']),
-                    $stackPtr,
-                    'Invalid'
-                );
-            }
+                if ($name && substr($tokens[$name]['content'], -7) == 'Command') {
+                    $phpcsFile->addError(
+                        sprintf('Class name "%s" is suffixed with "Command"', $tokens[$name]['content']),
+                        $stackPtr,
+                        'Invalid'
+                    );
+                }
 
-            /*
-             * Suffix classes with Handler;
-             */
-            $name = $phpcsFile->findNext(T_STRING, $stackPtr);
+                /*
+                 * Suffix classes with Handler;
+                 */
+                $name = $phpcsFile->findNext(T_STRING, $stackPtr);
 
-            if ($name && substr($tokens[$name]['content'], -7) == 'Handler') {
-                $phpcsFile->addError(
-                    sprintf('Class name "%s" is suffixed with "Handler"', $tokens[$name]['content']),
-                    $stackPtr,
-                    'Invalid'
-                );
+                if ($name && substr($tokens[$name]['content'], -7) == 'Handler') {
+                    $phpcsFile->addError(
+                        sprintf('Class name "%s" is suffixed with "Handler"', $tokens[$name]['content']),
+                        $stackPtr,
+                        'Invalid'
+                    );
+                }
             }
             $stackPtr++;
-
         }
 
         return;
